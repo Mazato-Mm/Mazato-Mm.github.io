@@ -1,119 +1,1200 @@
 <!doctype html>
 <html lang="th">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f7fb">
-  <title>ตาราง Workshop | 31 ต.ค. – 1 พ.ย. 2569</title>
-  <style>
-    :root{color-scheme:light;--ink:#172033;--muted:#58647a;--line:#bdc8d8;--paper:#fff;--bg:#f5f7fb;--blue:#2457c5;--soft:#f1f4f8;--soft-ink:#45516a;--chip:#234a9c;--chip-bg:#e5edff;--empty:#fff}
-    :root[data-theme="dark"]{color-scheme:dark;--ink:#edf2fc;--muted:#b2bfd3;--line:#58667c;--paper:#202a3a;--bg:#131b28;--blue:#a9c4ff;--soft:#303c4e;--soft-ink:#d7e0ef;--chip:#d3e1ff;--chip-bg:#2a3d5d;--empty:#202a3a}
-    @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--ink:#edf2fc;--muted:#b2bfd3;--line:#58667c;--paper:#202a3a;--bg:#131b28;--blue:#a9c4ff;--soft:#303c4e;--soft-ink:#d7e0ef;--chip:#d3e1ff;--chip-bg:#2a3d5d;--empty:#202a3a}}
-    *{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans Thai",Tahoma,"Leelawadee UI",sans-serif;line-height:1.6}
-    .wrap{width:min(1100px,calc(100% - 36px));margin:auto}.hero{padding:42px 0 24px}.eyebrow{margin:0 0 8px;color:var(--blue);font-size:.88rem;font-weight:700;letter-spacing:.02em}h1{font-size:clamp(1.8rem,4vw,2.65rem);line-height:1.25;margin:0 0 8px;letter-spacing:-.03em}.subtitle{color:var(--muted);margin:0;max-width:680px}
-    .summary{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.pill{background:var(--paper);border:1.5px solid var(--line);border-radius:999px;padding:7px 13px;color:var(--muted);font-size:.9rem}.pill strong{color:var(--ink)}
-    .toolbar{position:sticky;top:0;z-index:2;padding:12px 0;background:var(--bg);border-bottom:2px solid var(--line)}.controls{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}.tabs{display:flex;gap:8px;flex-wrap:wrap}.tab,.theme-toggle{border:1.5px solid var(--line);background:var(--paper);color:var(--ink);border-radius:9px;padding:9px 14px;font:inherit;font-size:.93rem;cursor:pointer}.tab[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}.tools{display:flex;gap:8px;align-items:center}.search{width:min(320px,100%);border:1.5px solid var(--line);border-radius:9px;padding:10px 13px;background:var(--paper);color:var(--ink);font:inherit;outline:none}.search::placeholder{color:var(--muted)}.search:focus,.tab:focus-visible,.theme-toggle:focus-visible,summary:focus-visible{outline:3px solid #8eafff;outline-offset:2px}
-    .section-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:25px 0 12px}.section-head h2{font-size:1.2rem;margin:0}.section-head span{color:var(--muted);font-size:.9rem}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding-bottom:38px}.card{background:var(--paper);border:1.5px solid var(--line);border-radius:13px;padding:17px 18px;box-shadow:0 2px 7px rgba(20,35,65,.06)}.card-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.dept{color:var(--muted);font-size:.83rem;margin:0 0 3px}.card h3{font-size:1.13rem;line-height:1.35;margin:0}.code{flex:none;background:var(--soft);color:var(--soft-ink);border-radius:6px;padding:3px 8px;font-size:.78rem;font-weight:700}.summary-text{color:var(--muted);margin:11px 0 12px;font-size:.94rem}.times{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 9px}.time{background:var(--chip-bg);color:var(--chip);padding:5px 9px;border-radius:7px;font-size:.84rem;font-variant-numeric:tabular-nums}.no-time{display:inline-block;background:var(--soft);color:var(--muted);padding:5px 9px;border-radius:7px;font-size:.84rem}details{border-top:1.5px solid var(--line);padding-top:9px;margin-top:10px}summary{color:var(--blue);font-size:.88rem;font-weight:600;cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}summary:after{content:"＋";float:right}details[open] summary:after{content:"−"}.full{font-size:.9rem;color:var(--muted);margin:8px 0 2px}.empty{grid-column:1/-1;background:var(--empty);border:1.5px dashed var(--line);border-radius:12px;text-align:center;padding:36px;color:var(--muted)}footer{border-top:1.5px solid var(--line);padding:18px 0 30px;color:var(--muted);font-size:.84rem}
-    .card{cursor:pointer;transition:border-color .15s,box-shadow .15s,transform .15s}.card:hover{border-color:var(--blue);box-shadow:0 5px 16px rgba(20,35,65,.12);transform:translateY(-1px)}.card:focus-visible{outline:3px solid #8eafff;outline-offset:3px}.card-hint{color:var(--blue);font-size:.85rem;font-weight:600;margin:12px 0 0}.detail-dialog{width:min(620px,calc(100% - 24px));max-height:min(86vh,820px);overflow:auto;padding:0;border:1.5px solid var(--line);border-radius:16px;background:var(--paper);color:var(--ink);box-shadow:0 20px 70px rgba(0,0,0,.32)}.detail-dialog::backdrop{background:rgba(10,17,29,.62);backdrop-filter:blur(3px)}.dialog-content{padding:22px 24px 24px}.dialog-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}.dialog-head h2{font-size:1.4rem;line-height:1.35;margin:0}.dialog-close{flex:none;border:1.5px solid var(--line);border-radius:8px;background:var(--soft);color:var(--ink);font:inherit;font-size:1.1rem;width:38px;height:38px;cursor:pointer}.detail-body{color:var(--muted);margin:18px 0;white-space:pre-line}.dialog-schedule{border-top:1.5px solid var(--line);padding-top:12px}.dialog-schedule .dept{font-weight:700;margin:0 0 7px}
-    .view-switch{display:flex;gap:8px;margin:20px 0 0}.view-button{border:1.5px solid var(--line);border-radius:9px;background:var(--paper);color:var(--ink);padding:8px 13px;font:inherit;font-size:.9rem;cursor:pointer}.view-button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}.schedule-list{display:grid;gap:20px;padding-bottom:38px}.schedule-day h3{font-size:1.05rem;margin:0 0 8px}.schedule-row{display:grid;grid-template-columns:150px 1fr;align-items:center;gap:14px;padding:10px 14px;border:1.5px solid var(--line);border-radius:10px;background:var(--paper);margin-bottom:7px}.schedule-time{font-variant-numeric:tabular-nums;font-weight:700;color:var(--ink);white-space:nowrap}.schedule-label{display:flex;align-items:baseline;flex-wrap:wrap;column-gap:10px}.schedule-name{justify-self:start;border:0;background:transparent;padding:2px 0;color:var(--blue);font:inherit;font-size:.94rem;text-align:left;cursor:pointer}.schedule-name:hover{text-decoration:underline}.schedule-name:focus-visible{outline:3px solid #8eafff;outline-offset:2px;border-radius:3px}.schedule-dept{color:var(--muted);font-size:.86rem}.schedule-empty{padding:15px;border:1.5px dashed var(--line);border-radius:10px;color:var(--muted);background:var(--paper)}
-    .view-switch{display:flex;gap:8px;margin:20px 0 0}.view-button{border:1.5px solid var(--line);border-radius:9px;background:var(--paper);color:var(--ink);padding:8px 13px;font:inherit;font-size:.9rem;cursor:pointer}.view-button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}.schedule-list{display:grid;gap:20px;padding-bottom:38px}.schedule-day h3{font-size:1.05rem;margin:0 0 8px}.schedule-row{display:grid;grid-template-columns:150px 1fr;align-items:center;gap:14px;padding:10px 14px;border:1.5px solid var(--line);border-radius:10px;background:var(--paper);margin-bottom:7px}.schedule-time{font-variant-numeric:tabular-nums;font-weight:700;color:var(--ink);white-space:nowrap}.schedule-label{display:flex;align-items:baseline;flex-wrap:wrap;column-gap:10px}.schedule-name{justify-self:start;border:0;background:transparent;padding:2px 0;color:var(--blue);font:inherit;font-size:.94rem;text-align:left;cursor:pointer}.schedule-name:hover{text-decoration:underline}.schedule-name:focus-visible{outline:3px solid #8eafff;outline-offset:2px;border-radius:3px}.schedule-dept{color:var(--muted);font-size:.86rem}.schedule-no-rounds{margin:9px 0 0;padding:9px 12px;border:1.5px dashed var(--line);border-radius:9px;color:#b42318;font-size:.88rem;font-weight:600;background:var(--paper)}:root[data-theme="dark"] .schedule-no-rounds{color:#ff9999}@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .schedule-no-rounds{color:#ff9999}}.schedule-empty{padding:15px;border:1.5px dashed var(--line);border-radius:10px;color:var(--muted);background:var(--paper)}
-    @media(max-width:700px){.wrap{width:min(100% - 24px,560px)}.hero{padding-top:26px}.grid{grid-template-columns:1fr;gap:11px;padding-bottom:28px}.toolbar{position:static;padding:10px 0}.controls{align-items:stretch;gap:10px}.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.tab{padding:8px 5px;font-size:.86rem}.tools{width:100%}.search{width:auto;flex:1;min-width:0}.theme-toggle{padding:8px 10px;font-size:.84rem;white-space:nowrap}.view-switch{margin-top:14px}.view-button{flex:1;padding:8px 5px;font-size:.86rem}.card{padding:15px}.section-head{align-items:flex-start;flex-direction:column;gap:2px}.schedule-row{grid-template-columns:100px 1fr;gap:8px;padding:10px}.schedule-name{font-size:.88rem}.time{padding:5px 8px;font-size:.82rem}}
-  </style>
-</head>
-<body>
-  <header class="wrap hero">
-    <p class="eyebrow">กิจกรรมเวิร์กช็อป</p>
-    <h1>ตาราง Workshop</h1>
-    <p class="subtitle">เลือกดูกิจกรรมและรอบเวลา อ่านสรุปสั้น ๆ แล้วกดการ์ดกิจกรรมเพื่อเปิดรายละเอียดเพิ่มเติม</p>
-    <div class="summary"><span class="pill"><strong>9</strong> กิจกรรม</span><span class="pill">31 ต.ค. – 1 พ.ย. 2569</span><span class="pill">เวลาแสดงตามรอบกิจกรรม</span></div>
-  </header>
-  <nav class="toolbar" aria-label="ตัวกรองกิจกรรม"><div class="wrap controls">
-    <div class="tabs"><button class="tab" data-day="d1" aria-pressed="true">31 ต.ค. 2569</button><button class="tab" data-day="d2" aria-pressed="false">1 พ.ย. 2569</button><button class="tab" data-day="all" aria-pressed="false">ทุกวัน</button></div>
-    <div class="tools"><input class="search" id="search" type="search" placeholder="ค้นหาชื่อกิจกรรมหรือภาควิชา…" aria-label="ค้นหาชื่อกิจกรรมหรือภาควิชา"><button class="theme-toggle" id="themeToggle" type="button" aria-label="สลับธีม">โหมดมืด</button></div>
-  </div></nav>
-  <main class="wrap">
-    <div class="view-switch" role="group" aria-label="เลือกรูปแบบการแสดงผล"><button class="view-button" data-view="schedule" aria-pressed="true">ตารางตามเวลา</button><button class="view-button" data-view="cards" aria-pressed="false">รายการกิจกรรม</button></div>
-    <div class="section-head"><h2 id="dayTitle">กิจกรรมทั้งหมด</h2><span id="count" aria-live="polite"></span></div>
-    <section class="grid" id="cards" aria-label="รายการกิจกรรม"></section>
-    <section class="schedule-list" id="scheduleList" aria-label="ตารางกิจกรรมตามเวลา" hidden></section>
-  </main>
-  <dialog class="detail-dialog" id="detailDialog" aria-labelledby="dialogTitle">
-    <div class="dialog-content">
-      <div class="dialog-head"><div><p class="dept" id="dialogDept"></p><h2 id="dialogTitle"></h2></div><button class="dialog-close" id="dialogClose" type="button" aria-label="ปิดรายละเอียด">×</button></div>
-      <p class="detail-body" id="dialogBody"></p>
-      <div class="dialog-schedule" id="dialogSchedule"></div>
-    </div>
-  </dialog>
-  <footer><div class="wrap">กำหนดการ Workshop · 31 ตุลาคม – 1 พฤศจิกายน 2569</div></footer>
-  <script>
-    const workshops = [
-      {dept:'ธรณีวิทยา',code:'GEO',name:'ทำแผนที่ธรณีวิทยา',short:'เรียนรู้การสำรวจและสร้างแผนที่ธรณีวิทยาอย่างง่าย',full:'กิจกรรมสร้างแผนที่ธรณีวิทยาจากข้อมูลสำรวจ ผู้เข้าร่วม 20 คน แบ่งเป็น 5 กลุ่ม กลุ่มละ 4 คน สวมบทบาทเป็นนักธรณีวิทยาตัวจิ๋ว จำลองการออกภาคสนาม เวียนฐานสำรวจหรือศึกษาหิน ใช้เวลาฐานละ 7 นาที และบันทึกข้อมูลเพื่อจัดทำแผนที่ธรณีวิทยาอย่างง่าย',d1:[{time:'13:00–14:00',room:'L1',seats:20,round:1},{time:'14:15–15:15',room:'L1',seats:20,round:2},{time:'15:30–16:30',room:'L1',seats:20,round:3},{time:'16:45–17:45',room:'L1',seats:20,round:4}],d2:[{time:'09:00–10:00',room:'L1',seats:20,round:1},{time:'11:30–12:30',room:'L1',seats:20,round:2},{time:'14:00–15:00',room:'L1',seats:20,round:3},{time:'15:15–16:15',room:'L1',seats:20,round:4}]},
-      {dept:'ชีวเคมี',code:'BIOCHEM',name:'สกัด DNA',short:'กิจกรรมสกัด DNA ตามรอบที่ระบุในกำหนดการ',full:'เอกสารกำหนดการระบุชื่อกิจกรรมและรอบเวลา แต่ไม่ได้ให้รายละเอียดขั้นตอนกิจกรรมเพิ่มเติม',d1:[{time:'15:30–16:30',room:'M1',seats:15,round:1}],d2:[{time:'11:30–12:30',room:'M1',seats:15,round:1}]},
-      {dept:'วัสดุศาสตร์',code:'MATSCI',name:'เม็ดบีทรีดร้อนผจญภัยแสนสนุก',short:'จัดเรียงลูกปัดพอลิเมอร์เป็นรูปพวงกุญแจ แล้วใช้ความร้อนรีดให้เม็ดบีทติดกัน',full:'ใช้ลูกปัดที่เป็นวัสดุพอลิเมอร์มาจัดเรียงให้ได้พวงกุญแจตามรูปร่างที่กำหนดไว้ จากนั้นใช้ความร้อนรีดจนเม็ดลูกปัดหลอมติดกันเป็นรูปที่ต้องการ',d1:[{time:'13:00–14:00',room:'L2',seats:20,round:1},{time:'15:30–16:30',room:'L2',seats:20,round:2}],d2:[{time:'09:00–10:00',room:'L2',seats:20,round:1},{time:'11:30–12:30',room:'L2',seats:20,round:2}]},
-      {dept:'จุลชีววิทยา',code:'MICRO',name:'Streak Plate',short:'กิจกรรม Streak Plate ตามตารางเวิร์กช็อป',full:'เอกสารกำหนดการระบุชื่อกิจกรรมและรอบเวลา แต่ไม่ได้ให้รายละเอียดขั้นตอนกิจกรรมเพิ่มเติม',d1:[],d2:[{time:'10:15–11:15',room:'L1',seats:15,round:1},{time:'12:45–13:45',room:'L1',seats:15,round:2},{time:'14:00–15:00',room:'L2',seats:15,round:3},{time:'15:15–16:15',room:'L2',seats:15,round:4}]},
-      {dept:'เทคโนโลยีทางภาพและการพิมพ์',code:'IMPRINT',name:'Muncell 100 Hue Test',short:'กิจกรรม Muncell 100 Hue Test ตามกำหนดการ',full:'เอกสารกำหนดการระบุชื่อกิจกรรมและรอบเวลา แต่ไม่ได้ให้รายละเอียดเพิ่มเติม',d1:[{time:'16:45–17:45',room:'L2',seats:15,round:1}],d2:[{time:'14:00–15:00',room:'M2',seats:15,round:1}]},
-      {dept:'เทคโนโลยีทางอาหาร',code:'FOODTECH',name:'อบคุกกี้ เทียบความแตกต่างของผงฟูและ baking soda',short:'อบคุกกี้พร้อมเรียนรู้ความแตกต่างของผงฟูและ baking soda',full:'กิจกรรมอบคุกกี้และเปรียบเทียบความแตกต่างของผงฟูกับ baking soda ตามชื่อกิจกรรมในเอกสารกำหนดการ',d1:[{time:'13:00–14:00',room:'M2',seats:10,round:1},{time:'14:15–15:15',room:'M2',seats:10,round:2},{time:'15:30–16:30',room:'M2',seats:10,round:3},{time:'16:45–17:45',room:'M2',seats:10,round:4}],d2:[{time:'09:00–10:00',room:'M2',seats:10,round:1},{time:'10:15–11:15',room:'M2',seats:10,round:2},{time:'11:30–12:30',room:'M2',seats:10,round:3},{time:'12:45–13:45',room:'M2',seats:10,round:4}]},
-      {dept:'หลักสูตรเคมีประยุกต์ & ภาควิชาเคมี',code:'BSAC & CHEM',name:'น้ำหอม',short:'ทดลองดมและผสมน้ำหอม เรียนรู้ Top, Middle, Base note และการระเหยของสารให้กลิ่น',full:'เรียนรู้โครงสร้างของกลิ่นน้ำหอม ได้แก่ Top, Middle และ Base note ผ่านการทดลองดมกลิ่น ทายประเภทกลิ่น และผสมกลิ่นเพื่อสร้างน้ำหอมสูตรของตนเอง สังเกตการเปลี่ยนแปลงของกลิ่นตามเวลา พร้อมเชื่อมโยงกับหลักการทางเคมีเรื่องการระเหยและคุณสมบัติของสารให้กลิ่น',d1:[{time:'13:00–14:00',room:'M1',seats:15,round:1},{time:'16:45–17:45',room:'M1',seats:15,round:2}],d2:[{time:'09:00–10:00',room:'M1',seats:15,round:1},{time:'12:45–13:45',room:'M1',seats:15,round:2}]},
-      {dept:'หลักสูตรเทคโนโลยีชีวภาพ',code:'BBTech',name:'กำไล/พวงกุญแจ codon code',short:'ใช้ลูกปัดแทนรหัส codon แล้วทำเป็นกำไลหรือพวงกุญแจ',full:'ผู้เข้าร่วมจะได้สะกดชื่อตัวเองเป็นรหัส DNA โดยใช้ลูกปัด 4 สีแทนเบส A, T, C และ G ซึ่งเบส 3 ตัวเรียงกัน (codon) จะแทนตัวอักษร 1 ตัวตามตารางรหัส จากนั้นร้อยลูกปัดตามรหัสจนครบชื่อ แล้วทำเป็นสร้อยข้อมือหรือพวงกุญแจ',d1:[{time:'13:00–14:00',room:'M1',seats:15,round:1},{time:'18:00–19:00',room:'M1',seats:15,round:2}],d2:[{time:'10:15–11:15',room:'M1',seats:15,round:1},{time:'14:00–15:00',room:'M1',seats:15,round:2}]},
-      {dept:'หลักสูตรวิทยาศาสตร์และเทคโนโลยีอุตสาหการ',code:'BISTECH',name:'ลูกบอลคลายเครียด (stress ball) & กระดาษหด (shrink plastic)',short:'ทำลูกบอลคลายเครียดและงาน DIY จากกระดาษหด',full:'เอกสารกำหนดการระบุกิจกรรมลูกบอลคลายเครียด (stress ball) และกระดาษหด (shrink plastic) แต่ไม่ได้ให้รายละเอียดขั้นตอนเพิ่มเติม',d1:[{time:'14:15–15:15',room:'L2',seats:20,round:1},{time:'18:00–19:00',room:'L2',seats:20,round:2}],d2:[{time:'10:15–11:15',room:'L2',seats:20,round:1},{time:'12:45–13:45',room:'L2',seats:20,round:2}]}
-    ];
-    let selectedDay='d1', viewMode='schedule';
-    const cards=document.getElementById('cards'), scheduleList=document.getElementById('scheduleList'), search=document.getElementById('search');
-    const esc=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-    function render(){
-      const q=search.value.trim().toLocaleLowerCase('th');
-      const list=workshops.filter(w=>{
-        const dayMatch=selectedDay==='all'||w[selectedDay].length>0;
-        return dayMatch&&(w.name+' '+w.dept+' '+w.code).toLocaleLowerCase('th').includes(q);
-      });
-      document.getElementById('dayTitle').textContent=selectedDay==='d1'?'กิจกรรมวันที่ 31 ต.ค. 2569':selectedDay==='d2'?'กิจกรรมวันที่ 1 พ.ย. 2569':'กิจกรรมทั้งหมด';
-      document.getElementById('count').textContent=`แสดง ${list.length} จาก ${workshops.length} กิจกรรม`;
-      if(viewMode==='schedule'){
-        cards.hidden=true;scheduleList.hidden=false;
-        const days=selectedDay==='d1'?[['d1','31 ต.ค. 2569']]:selectedDay==='d2'?[['d2','1 พ.ย. 2569']]:[['d1','31 ต.ค. 2569'],['d2','1 พ.ย. 2569']];
-        scheduleList.innerHTML=list.length?days.map(([key,date])=>{
-          const entries=list.flatMap(w=>w[key].map(session=>({...session,w}))).sort((a,b)=>a.time.localeCompare(b.time)||a.w.name.localeCompare(b.w.name));
-          const rows=entries.map(({time,room,seats,round,w})=>`<div class="schedule-row"><div class="schedule-time">${time}</div><div class="schedule-label"><button type="button" class="schedule-name" data-workshop="${esc(w.code)}" aria-label="ดูรายละเอียด ${esc(w.name)} จากภาควิชา ${esc(w.dept)}">${esc(w.name)}</button><span class="schedule-dept">— ${esc(w.code)} · ${esc(room)} · ${seats} คน · รอบ ${round}</span></div></div>`).join('');
-          const noRounds=workshops.filter(w=>!w[key].length&&(w.name+' '+w.dept+' '+w.code).toLocaleLowerCase('th').includes(q));
-          const noRoundNote=noRounds.length?`<p class="schedule-no-rounds">ไม่มีรอบในวันนี้: ${noRounds.map(w=>`${esc(w.code)} (${esc(w.dept)})`).join(', ')}</p>`:'';
-          return `<section class="schedule-day"><h3>${date}</h3>${rows||'<div class="schedule-empty">ไม่มีกิจกรรมในวันที่เลือก</div>'}${noRoundNote}</section>`;
-        }).join(''):'<div class="empty">ไม่พบกิจกรรมที่ตรงกับคำค้น</div>';
-        scheduleList.querySelectorAll('.schedule-name').forEach(button=>button.addEventListener('click',()=>showDetails(workshops.find(w=>w.code===button.dataset.workshop))));
-        return;
-      }
-      cards.hidden=false;scheduleList.hidden=true;
-      cards.innerHTML=list.length?list.map(w=>{
-        const day1=w.d1.length?w.d1.map(s=>`<span class="time">${s.time}</span>`).join(''):'<span class="no-time">ไม่มีรอบ</span>';
-        const day2=w.d2.length?w.d2.map(s=>`<span class="time">${s.time}</span>`).join(''):'<span class="no-time">ไม่มีรอบ</span>';
-        const schedule=selectedDay==='d1'?`<div class="dept">31 ต.ค. 2569</div><div class="times">${day1}</div>`:selectedDay==='d2'?`<div class="dept">1 พ.ย. 2569</div><div class="times">${day2}</div>`:`<div class="dept">31 ต.ค. 2569</div><div class="times">${day1}</div><div class="dept">1 พ.ย. 2569</div><div class="times">${day2}</div>`;
-        return `<article class="card" tabindex="0" role="button" aria-label="ดูรายละเอียดกิจกรรม ${esc(w.name)}" data-workshop="${esc(w.code)}"><div class="card-top"><div><p class="dept">${esc(w.dept)}</p><h3>${esc(w.name)}</h3></div><span class="code">${esc(w.code)}</span></div><p class="summary-text">${esc(w.short)}</p>${schedule}<p class="card-hint">กดเพื่อดูรายละเอียดกิจกรรม →</p></article>`;
-      }).join(''):'<div class="empty">ไม่พบกิจกรรมที่ตรงกับคำค้น</div>';
-      cards.querySelectorAll('.card').forEach(card=>{
-        const open=()=>showDetails(workshops.find(w=>w.code===card.dataset.workshop));
-        card.addEventListener('click',open);
-        card.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();open()}});
-      });
-    }
-    const detailDialog=document.getElementById('detailDialog');
-    function showDetails(w){
-      if(!w)return;
-      document.getElementById('dialogDept').textContent=`${w.dept} · ${w.code}`;
-      document.getElementById('dialogTitle').textContent=w.name;
-      document.getElementById('dialogBody').textContent=w.full;
-      const dates=selectedDay==='d1'?[['31 ต.ค. 2569',w.d1]]:selectedDay==='d2'?[['1 พ.ย. 2569',w.d2]]:[['31 ต.ค. 2569',w.d1],['1 พ.ย. 2569',w.d2]];
-      document.getElementById('dialogSchedule').innerHTML=dates.map(([date,sessions])=>`<p class="dept">${date}</p><div class="times">${sessions.length?sessions.map(s=>`<span class="time">${s.time} · ${s.room} · ${s.seats} คน · รอบ ${s.round}</span>`).join(''):'<span class="no-time">ไม่มีรอบ</span>'}</div>`).join('');
-      detailDialog.showModal();
-    }
-    document.getElementById('dialogClose').addEventListener('click',()=>detailDialog.close());
-    detailDialog.addEventListener('click',event=>{if(event.target===detailDialog)detailDialog.close()});
-    document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{selectedDay=btn.dataset.day;document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));render()}));
-    document.querySelectorAll('.view-button').forEach(btn=>btn.addEventListener('click',()=>{viewMode=btn.dataset.view;document.querySelectorAll('.view-button').forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));render()}));
-    const themeToggle=document.getElementById('themeToggle');
-    let savedTheme=null;try{savedTheme=localStorage.getItem('workshop-theme')}catch{}
-    if(savedTheme==='light'||savedTheme==='dark')document.documentElement.dataset.theme=savedTheme;
-    function updateThemeButton(){const dark=document.documentElement.dataset.theme==='dark'||(!document.documentElement.dataset.theme&&matchMedia('(prefers-color-scheme: dark)').matches);themeToggle.textContent=dark?'โหมดสว่าง':'โหมดมืด';themeToggle.setAttribute('aria-label',dark?'เปลี่ยนเป็นธีมสว่าง':'เปลี่ยนเป็นธีมมืด');}
-    themeToggle.addEventListener('click',()=>{const currentDark=document.documentElement.dataset.theme==='dark'||(!document.documentElement.dataset.theme&&matchMedia('(prefers-color-scheme: dark)').matches);const next=currentDark?'light':'dark';document.documentElement.dataset.theme=next;try{localStorage.setItem('workshop-theme',next)}catch{}updateThemeButton()});
-    search.addEventListener('input',render);updateThemeButton();render();
-  </script>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#f5f7fb">
+        <title>ตาราง Workshop | 31 ต.ค. – 1 พ.ย. 2569</title>
+        <style>
+            :root {
+                color-scheme: light;
+                --ink: #172033;
+                --muted: #58647a;
+                --line: #bdc8d8;
+                --paper: #fff;
+                --bg: #f5f7fb;
+                --blue: #2457c5;
+                --soft: #f1f4f8;
+                --soft-ink: #45516a;
+                --chip: #234a9c;
+                --chip-bg: #e5edff;
+                --empty: #fff
+            }
+
+            :root[data-theme="dark"] {
+                color-scheme: dark;
+                --ink: #edf2fc;
+                --muted: #b2bfd3;
+                --line: #58667c;
+                --paper: #202a3a;
+                --bg: #131b28;
+                --blue: #a9c4ff;
+                --soft: #303c4e;
+                --soft-ink: #d7e0ef;
+                --chip: #d3e1ff;
+                --chip-bg: #2a3d5d;
+                --empty: #202a3a
+            }
+
+            @media(prefers-color-scheme: dark) {
+                :root:not([data-theme="light"]) {
+                    color-scheme:dark;
+                    --ink: #edf2fc;
+                    --muted: #b2bfd3;
+                    --line: #58667c;
+                    --paper: #202a3a;
+                    --bg: #131b28;
+                    --blue: #a9c4ff;
+                    --soft: #303c4e;
+                    --soft-ink: #d7e0ef;
+                    --chip: #d3e1ff;
+                    --chip-bg: #2a3d5d;
+                    --empty: #202a3a
+                }
+            }
+
+            * {
+                box-sizing: border-box
+            }
+
+            [hidden] {
+                display: none!important
+            }
+
+            body {
+                margin: 0;
+                background: var(--bg);
+                color: var(--ink);
+                font-family: "Noto Sans Thai",Tahoma,"Leelawadee UI",sans-serif;
+                line-height: 1.6
+            }
+
+            .wrap {
+                width: min(1100px,calc(100% - 36px));
+                margin: auto
+            }
+
+            .hero {
+                padding: 42px 0 24px
+            }
+
+            .eyebrow {
+                margin: 0 0 8px;
+                color: var(--blue);
+                font-size: .88rem;
+                font-weight: 700;
+                letter-spacing: .02em
+            }
+
+            h1 {
+                font-size: clamp(1.8rem,4vw,2.65rem);
+                line-height: 1.25;
+                margin: 0 0 8px;
+                letter-spacing: -.03em
+            }
+
+            .subtitle {
+                color: var(--muted);
+                margin: 0;
+                max-width: 680px
+            }
+
+            .summary {
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+                margin-top: 22px
+            }
+
+            .pill {
+                background: var(--paper);
+                border: 1.5px solid var(--line);
+                border-radius: 999px;
+                padding: 7px 13px;
+                color: var(--muted);
+                font-size: .9rem
+            }
+
+            .pill strong {
+                color: var(--ink)
+            }
+
+            .toolbar {
+                position: sticky;
+                top: 0;
+                z-index: 2;
+                padding: 12px 0;
+                background: var(--bg);
+                border-bottom: 2px solid var(--line)
+            }
+
+            .controls {
+                display: flex;
+                gap: 12px;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap
+            }
+
+            .tabs {
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap
+            }
+
+            .tab,.theme-toggle {
+                border: 1.5px solid var(--line);
+                background: var(--paper);
+                color: var(--ink);
+                border-radius: 9px;
+                padding: 9px 14px;
+                font: inherit;
+                font-size: .93rem;
+                cursor: pointer
+            }
+
+            .tab[aria-pressed="true"] {
+                background: var(--blue);
+                border-color: var(--blue);
+                color: #fff
+            }
+
+            .tools {
+                display: flex;
+                gap: 8px;
+                align-items: center
+            }
+
+            .search {
+                width: min(320px,100%);
+                border: 1.5px solid var(--line);
+                border-radius: 9px;
+                padding: 10px 13px;
+                background: var(--paper);
+                color: var(--ink);
+                font: inherit;
+                outline: none
+            }
+
+            .search::placeholder {
+                color: var(--muted)
+            }
+
+            .search:focus,.tab:focus-visible,.theme-toggle:focus-visible,summary:focus-visible {
+                outline: 3px solid #8eafff;
+                outline-offset: 2px
+            }
+
+            .section-head {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                gap: 12px;
+                margin: 25px 0 12px
+            }
+
+            .section-head h2 {
+                font-size: 1.2rem;
+                margin: 0
+            }
+
+            .section-head span {
+                color: var(--muted);
+                font-size: .9rem
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(2,minmax(0,1fr));
+                gap: 14px;
+                padding-bottom: 38px
+            }
+
+            .card {
+                background: var(--paper);
+                border: 1.5px solid var(--line);
+                border-radius: 13px;
+                padding: 17px 18px;
+                box-shadow: 0 2px 7px rgba(20,35,65,.06)
+            }
+
+            .card-top {
+                display: flex;
+                justify-content: space-between;
+                gap: 12px;
+                align-items: flex-start
+            }
+
+            .dept {
+                color: var(--muted);
+                font-size: .83rem;
+                margin: 0 0 3px
+            }
+
+            .card h3 {
+                font-size: 1.13rem;
+                line-height: 1.35;
+                margin: 0
+            }
+
+            .code {
+                flex: none;
+                background: var(--soft);
+                color: var(--soft-ink);
+                border-radius: 6px;
+                padding: 3px 8px;
+                font-size: .78rem;
+                font-weight: 700
+            }
+
+            .summary-text {
+                color: var(--muted);
+                margin: 11px 0 12px;
+                font-size: .94rem
+            }
+
+            .times {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 7px;
+                margin: 0 0 9px
+            }
+
+            .time {
+                background: var(--chip-bg);
+                color: var(--chip);
+                padding: 5px 9px;
+                border-radius: 7px;
+                font-size: .84rem;
+                font-variant-numeric: tabular-nums
+            }
+
+            .no-time {
+                display: inline-block;
+                background: var(--soft);
+                color: var(--muted);
+                padding: 5px 9px;
+                border-radius: 7px;
+                font-size: .84rem
+            }
+
+            details {
+                border-top: 1.5px solid var(--line);
+                padding-top: 9px;
+                margin-top: 10px
+            }
+
+            summary {
+                color: var(--blue);
+                font-size: .88rem;
+                font-weight: 600;
+                cursor: pointer;
+                list-style: none
+            }
+
+            summary::-webkit-details-marker {
+                display: none
+            }
+
+            summary:after {
+                content: "＋";
+                float: right
+            }
+
+            details[open] summary:after {
+                content: "−"
+            }
+
+            .full {
+                font-size: .9rem;
+                color: var(--muted);
+                margin: 8px 0 2px
+            }
+
+            .empty {
+                grid-column: 1/-1;
+                background: var(--empty);
+                border: 1.5px dashed var(--line);
+                border-radius: 12px;
+                text-align: center;
+                padding: 36px;
+                color: var(--muted)
+            }
+
+            footer {
+                border-top: 1.5px solid var(--line);
+                padding: 18px 0 30px;
+                color: var(--muted);
+                font-size: .84rem
+            }
+
+            .card {
+                cursor: pointer;
+                transition: border-color .15s,box-shadow .15s,transform .15s
+            }
+
+            .card:hover {
+                border-color: var(--blue);
+                box-shadow: 0 5px 16px rgba(20,35,65,.12);
+                transform: translateY(-1px)
+            }
+
+            .card:focus-visible {
+                outline: 3px solid #8eafff;
+                outline-offset: 3px
+            }
+
+            .card-hint {
+                color: var(--blue);
+                font-size: .85rem;
+                font-weight: 600;
+                margin: 12px 0 0
+            }
+
+            .detail-dialog {
+                width: min(620px,calc(100% - 24px));
+                max-height: min(86vh,820px);
+                overflow: auto;
+                padding: 0;
+                border: 1.5px solid var(--line);
+                border-radius: 16px;
+                background: var(--paper);
+                color: var(--ink);
+                box-shadow: 0 20px 70px rgba(0,0,0,.32)
+            }
+
+            .detail-dialog::backdrop {
+                background: rgba(10,17,29,.62);
+                backdrop-filter: blur(3px)
+            }
+
+            .dialog-content {
+                padding: 22px 24px 24px
+            }
+
+            .dialog-head {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 16px
+            }
+
+            .dialog-head h2 {
+                font-size: 1.4rem;
+                line-height: 1.35;
+                margin: 0
+            }
+
+            .dialog-close {
+                flex: none;
+                border: 1.5px solid var(--line);
+                border-radius: 8px;
+                background: var(--soft);
+                color: var(--ink);
+                font: inherit;
+                font-size: 1.1rem;
+                width: 38px;
+                height: 38px;
+                cursor: pointer
+            }
+
+            .detail-body {
+                color: var(--muted);
+                margin: 18px 0;
+                white-space: pre-line
+            }
+
+            .dialog-schedule {
+                border-top: 1.5px solid var(--line);
+                padding-top: 12px
+            }
+
+            .dialog-schedule .dept {
+                font-weight: 700;
+                margin: 0 0 7px
+            }
+
+            .view-switch {
+                display: flex;
+                gap: 8px;
+                margin: 20px 0 0
+            }
+
+            .view-button {
+                border: 1.5px solid var(--line);
+                border-radius: 9px;
+                background: var(--paper);
+                color: var(--ink);
+                padding: 8px 13px;
+                font: inherit;
+                font-size: .9rem;
+                cursor: pointer
+            }
+
+            .view-button[aria-pressed="true"] {
+                background: var(--blue);
+                border-color: var(--blue);
+                color: #fff
+            }
+
+            .schedule-list {
+                display: grid;
+                gap: 20px;
+                padding-bottom: 38px
+            }
+
+            .schedule-day h3 {
+                font-size: 1.05rem;
+                margin: 0 0 8px
+            }
+
+            .schedule-row {
+                display: grid;
+                grid-template-columns: 150px 1fr;
+                align-items: center;
+                gap: 14px;
+                padding: 10px 14px;
+                border: 1.5px solid var(--line);
+                border-radius: 10px;
+                background: var(--paper);
+                margin-bottom: 7px
+            }
+
+            .schedule-time {
+                font-variant-numeric: tabular-nums;
+                font-weight: 700;
+                color: var(--ink);
+                white-space: nowrap
+            }
+
+            .schedule-label {
+                display: flex;
+                align-items: baseline;
+                flex-wrap: wrap;
+                column-gap: 10px
+            }
+
+            .schedule-name {
+                justify-self: start;
+                border: 0;
+                background: transparent;
+                padding: 2px 0;
+                color: var(--blue);
+                font: inherit;
+                font-size: .94rem;
+                text-align: left;
+                cursor: pointer
+            }
+
+            .schedule-name:hover {
+                text-decoration: underline
+            }
+
+            .schedule-name:focus-visible {
+                outline: 3px solid #8eafff;
+                outline-offset: 2px;
+                border-radius: 3px
+            }
+
+            .schedule-dept {
+                color: var(--muted);
+                font-size: .86rem
+            }
+
+            .schedule-empty {
+                padding: 15px;
+                border: 1.5px dashed var(--line);
+                border-radius: 10px;
+                color: var(--muted);
+                background: var(--paper)
+            }
+
+            .view-switch {
+                display: flex;
+                gap: 8px;
+                margin: 20px 0 0
+            }
+
+            .view-button {
+                border: 1.5px solid var(--line);
+                border-radius: 9px;
+                background: var(--paper);
+                color: var(--ink);
+                padding: 8px 13px;
+                font: inherit;
+                font-size: .9rem;
+                cursor: pointer
+            }
+
+            .view-button[aria-pressed="true"] {
+                background: var(--blue);
+                border-color: var(--blue);
+                color: #fff
+            }
+
+            .schedule-list {
+                display: grid;
+                gap: 20px;
+                padding-bottom: 38px
+            }
+
+            .schedule-day h3 {
+                font-size: 1.05rem;
+                margin: 0 0 8px
+            }
+
+            .schedule-row {
+                display: grid;
+                grid-template-columns: 150px 1fr;
+                align-items: center;
+                gap: 14px;
+                padding: 10px 14px;
+                border: 1.5px solid var(--line);
+                border-radius: 10px;
+                background: var(--paper);
+                margin-bottom: 7px
+            }
+
+            .schedule-time {
+                font-variant-numeric: tabular-nums;
+                font-weight: 700;
+                color: var(--ink);
+                white-space: nowrap
+            }
+
+            .schedule-label {
+                display: flex;
+                align-items: baseline;
+                flex-wrap: wrap;
+                column-gap: 10px
+            }
+
+            .schedule-name {
+                justify-self: start;
+                border: 0;
+                background: transparent;
+                padding: 2px 0;
+                color: var(--blue);
+                font: inherit;
+                font-size: .94rem;
+                text-align: left;
+                cursor: pointer
+            }
+
+            .schedule-name:hover {
+                text-decoration: underline
+            }
+
+            .schedule-name:focus-visible {
+                outline: 3px solid #8eafff;
+                outline-offset: 2px;
+                border-radius: 3px
+            }
+
+            .schedule-dept {
+                color: var(--muted);
+                font-size: .86rem
+            }
+
+            .schedule-no-rounds {
+                margin: 9px 0 0;
+                padding: 9px 12px;
+                border: 1.5px dashed var(--line);
+                border-radius: 9px;
+                color: #b42318;
+                font-size: .88rem;
+                font-weight: 600;
+                background: var(--paper)
+            }
+
+            :root[data-theme="dark"] .schedule-no-rounds {
+                color: #ff9999
+            }
+
+            @media(prefers-color-scheme: dark) {
+                :root:not([data-theme="light"]) .schedule-no-rounds {
+                    color:#ff9999
+                }
+            }
+
+            .schedule-conflict {
+                margin: 0 0 10px;
+                padding: 10px 12px;
+                border: 1.5px solid #c62828;
+                border-radius: 9px;
+                color: #b42318;
+                font-size: .9rem;
+                font-weight: 700;
+                background: #fff1f1
+            }
+
+            .schedule-conflict strong {
+                color: #991b1b
+            }
+
+            :root[data-theme="dark"] .schedule-conflict {
+                color: #ffb4b4;
+                background: #3b2025;
+                border-color: #ee7777
+            }
+
+            :root[data-theme="dark"] .schedule-conflict strong {
+                color: #ffd0d0
+            }
+
+            @media(prefers-color-scheme: dark) {
+                :root:not([data-theme="light"]) .schedule-conflict {
+                    color:#ffb4b4;
+                    background: #3b2025;
+                    border-color: #ee7777
+                }
+
+                :root:not([data-theme="light"]) .schedule-conflict strong {
+                    color: #ffd0d0
+                }
+            }
+
+            .schedule-empty {
+                padding: 15px;
+                border: 1.5px dashed var(--line);
+                border-radius: 10px;
+                color: var(--muted);
+                background: var(--paper)
+            }
+
+            @media(max-width: 700px) {
+                .wrap {
+                    width:min(100% - 24px,560px)
+                }
+
+                .hero {
+                    padding-top: 26px
+                }
+
+                .grid {
+                    grid-template-columns: 1fr;
+                    gap: 11px;
+                    padding-bottom: 28px
+                }
+
+                .toolbar {
+                    position: static;
+                    padding: 10px 0
+                }
+
+                .controls {
+                    align-items: stretch;
+                    gap: 10px
+                }
+
+                .tabs {
+                    display: grid;
+                    grid-template-columns: repeat(3,minmax(0,1fr));
+                    gap: 6px
+                }
+
+                .tab {
+                    padding: 8px 5px;
+                    font-size: .86rem
+                }
+
+                .tools {
+                    width: 100%
+                }
+
+                .search {
+                    width: auto;
+                    flex: 1;
+                    min-width: 0
+                }
+
+                .theme-toggle {
+                    padding: 8px 10px;
+                    font-size: .84rem;
+                    white-space: nowrap
+                }
+
+                .view-switch {
+                    margin-top: 14px
+                }
+
+                .view-button {
+                    flex: 1;
+                    padding: 8px 5px;
+                    font-size: .86rem
+                }
+
+                .card {
+                    padding: 15px
+                }
+
+                .section-head {
+                    align-items: flex-start;
+                    flex-direction: column;
+                    gap: 2px
+                }
+
+                .schedule-row {
+                    grid-template-columns: 100px 1fr;
+                    gap: 8px;
+                    padding: 10px
+                }
+
+                .schedule-name {
+                    font-size: .88rem
+                }
+
+                .time {
+                    padding: 5px 8px;
+                    font-size: .82rem
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="wrap hero">
+            <p class="eyebrow">กิจกรรมเวิร์กช็อป</p>
+            <h1>ตาราง Workshop</h1>
+            <p class="subtitle">เลือกดูกิจกรรมและรอบเวลา อ่านสรุปสั้น ๆ แล้วกดการ์ดกิจกรรมเพื่อเปิดรายละเอียดเพิ่มเติม</p>
+            <div class="summary">
+                <span class="pill">
+                    <strong>9</strong>
+                    กิจกรรม
+                </span>
+                <span class="pill">31 ต.ค. – 1 พ.ย. 2569</span>
+                <span class="pill">เวลาแสดงตามรอบกิจกรรม</span>
+            </div>
+        </header>
+        <nav class="toolbar" aria-label="ตัวกรองกิจกรรม">
+            <div class="wrap controls">
+                <div class="tabs">
+                    <button class="tab" data-day="d1" aria-pressed="true">31 ต.ค. 2569</button>
+                    <button class="tab" data-day="d2" aria-pressed="false">1 พ.ย. 2569</button>
+                    <button class="tab" data-day="all" aria-pressed="false">ทุกวัน</button>
+                </div>
+                <div class="tools">
+                    <input class="search" id="search" type="search" placeholder="ค้นหาชื่อกิจกรรมหรือภาควิชา…" aria-label="ค้นหาชื่อกิจกรรมหรือภาควิชา">
+                    <button class="theme-toggle" id="themeToggle" type="button" aria-label="สลับธีม">โหมดมืด</button>
+                </div>
+            </div>
+        </nav>
+        <main class="wrap">
+            <div class="view-switch" role="group" aria-label="เลือกรูปแบบการแสดงผล">
+                <button class="view-button" data-view="schedule" aria-pressed="true">ตารางตามเวลา</button>
+                <button class="view-button" data-view="cards" aria-pressed="false">รายการกิจกรรม</button>
+            </div>
+            <div class="section-head">
+                <h2 id="dayTitle">กิจกรรมทั้งหมด</h2>
+                <span id="count" aria-live="polite"></span>
+            </div>
+            <section class="grid" id="cards" aria-label="รายการกิจกรรม"></section>
+            <section class="schedule-list" id="scheduleList" aria-label="ตารางกิจกรรมตามเวลา" hidden></section>
+        </main>
+        <dialog class="detail-dialog" id="detailDialog" aria-labelledby="dialogTitle">
+            <div class="dialog-content">
+                <div class="dialog-head">
+                    <div>
+                        <p class="dept" id="dialogDept"></p>
+                        <h2 id="dialogTitle"></h2>
+                    </div>
+                    <button class="dialog-close" id="dialogClose" type="button" aria-label="ปิดรายละเอียด">×</button>
+                </div>
+                <p class="detail-body" id="dialogBody"></p>
+                <div class="dialog-schedule" id="dialogSchedule"></div>
+            </div>
+        </dialog>
+        <footer>
+            <div class="wrap">กำหนดการ Workshop · 31 ตุลาคม – 1 พฤศจิกายน 2569</div>
+        </footer>
+        <script>
+            const workshops = [{
+                dept: 'ธรณีวิทยา',
+                code: 'GEO',
+                name: 'ทำแผนที่ธรณีวิทยา',
+                short: 'เรียนรู้การสำรวจและสร้างแผนที่ธรณีวิทยาอย่างง่าย',
+                full: 'กิจกรรมสร้างแผนที่ธรณีวิทยาจากข้อมูลสำรวจ ผู้เข้าร่วม 20 คน แบ่งเป็น 5 กลุ่ม กลุ่มละ 4 คน สวมบทบาทเป็นนักธรณีวิทยาตัวจิ๋ว จำลองการออกภาคสนาม เวียนฐานสำรวจหรือศึกษาหิน ใช้เวลาฐานละ 7 นาที และบันทึกข้อมูลเพื่อจัดทำแผนที่ธรณีวิทยาอย่างง่าย',
+                d1: [{
+                    time: '13:00–14:00',
+                    room: 'L1',
+                    seats: 20,
+                    round: 1
+                }, {
+                    time: '14:15–15:15',
+                    room: 'L1',
+                    seats: 20,
+                    round: 2
+                }, {
+                    time: '15:30–16:30',
+                    room: 'L1',
+                    seats: 20,
+                    round: 3
+                }, {
+                    time: '16:45–17:45',
+                    room: 'L1',
+                    seats: 20,
+                    round: 4
+                }],
+                d2: [{
+                    time: '09:00–10:00',
+                    room: 'L1',
+                    seats: 20,
+                    round: 1
+                }, {
+                    time: '11:30–12:30',
+                    room: 'L1',
+                    seats: 20,
+                    round: 2
+                }, {
+                    time: '14:00–15:00',
+                    room: 'L1',
+                    seats: 20,
+                    round: 3
+                }, {
+                    time: '15:15–16:15',
+                    room: 'L1',
+                    seats: 20,
+                    round: 4
+                }]
+            }, {
+                dept: 'ชีวเคมี',
+                code: 'BIOCHEM',
+                name: 'สกัด DNA',
+                short: 'กิจกรรมสกัด DNA ตามรอบที่ระบุในกำหนดการ',
+                full: 'เอกสารกำหนดการระบุชื่อกิจกรรมและรอบเวลา แต่ไม่ได้ให้รายละเอียดขั้นตอนกิจกรรมเพิ่มเติม',
+                d1: [{
+                    time: '15:30–16:30',
+                    room: 'M1',
+                    seats: 15,
+                    round: 1
+                }],
+                d2: [{
+                    time: '11:30–12:30',
+                    room: 'M1',
+                    seats: 15,
+                    round: 1
+                }]
+            }, {
+                dept: 'วัสดุศาสตร์',
+                code: 'MATSCI',
+                name: 'เม็ดบีทรีดร้อนผจญภัยแสนสนุก',
+                short: 'จัดเรียงลูกปัดพอลิเมอร์เป็นรูปพวงกุญแจ แล้วใช้ความร้อนรีดให้เม็ดบีทติดกัน',
+                full: 'ใช้ลูกปัดที่เป็นวัสดุพอลิเมอร์มาจัดเรียงให้ได้พวงกุญแจตามรูปร่างที่กำหนดไว้ จากนั้นใช้ความร้อนรีดจนเม็ดลูกปัดหลอมติดกันเป็นรูปที่ต้องการ',
+                d1: [{
+                    time: '13:00–14:00',
+                    room: 'L2',
+                    seats: 20,
+                    round: 1
+                }, {
+                    time: '15:30–16:30',
+                    room: 'L2',
+                    seats: 20,
+                    round: 2
+                }],
+                d2: [{
+                    time: '09:00–10:00',
+                    room: 'L2',
+                    seats: 20,
+                    round: 1
+                }, {
+                    time: '11:30–12:30',
+                    room: 'L2',
+                    seats: 20,
+                    round: 2
+                }]
+            }, {
+                dept: 'จุลชีววิทยา',
+                code: 'MICRO',
+                name: 'Streak Plate',
+                short: 'กิจกรรม Streak Plate ตามตารางเวิร์กช็อป',
+                full: 'เอกสารกำหนดการระบุชื่อกิจกรรมและรอบเวลา แต่ไม่ได้ให้รายละเอียดขั้นตอนกิจกรรมเพิ่มเติม',
+                d1: [],
+                d2: [{
+                    time: '10:15–11:15',
+                    room: 'L1',
+                    seats: 15,
+                    round: 1
+                }, {
+                    time: '12:45–13:45',
+                    room: 'L1',
+                    seats: 15,
+                    round: 2
+                }, {
+                    time: '14:00–15:00',
+                    room: 'L2',
+                    seats: 15,
+                    round: 3
+                }, {
+                    time: '15:15–16:15',
+                    room: 'L2',
+                    seats: 15,
+                    round: 4
+                }]
+            }, {
+                dept: 'เทคโนโลยีทางภาพและการพิมพ์',
+                code: 'IMPRINT',
+                name: 'Muncell 100 Hue Test',
+                short: 'กิจกรรม Muncell 100 Hue Test ตามกำหนดการ',
+                full: 'เอกสารกำหนดการระบุชื่อกิจกรรมและรอบเวลา แต่ไม่ได้ให้รายละเอียดเพิ่มเติม',
+                d1: [{
+                    time: '16:45–17:45',
+                    room: 'L2',
+                    seats: 15,
+                    round: 1
+                }],
+                d2: [{
+                    time: '14:00–15:00',
+                    room: 'M2',
+                    seats: 15,
+                    round: 1
+                }]
+            }, {
+                dept: 'เทคโนโลยีทางอาหาร',
+                code: 'FOODTECH',
+                name: 'อบคุกกี้ เทียบความแตกต่างของผงฟูและ baking soda',
+                short: 'อบคุกกี้พร้อมเรียนรู้ความแตกต่างของผงฟูและ baking soda',
+                full: 'กิจกรรมอบคุกกี้และเปรียบเทียบความแตกต่างของผงฟูกับ baking soda ตามชื่อกิจกรรมในเอกสารกำหนดการ',
+                d1: [{
+                    time: '13:00–14:00',
+                    room: 'M2',
+                    seats: 10,
+                    round: 1
+                }, {
+                    time: '14:15–15:15',
+                    room: 'M2',
+                    seats: 10,
+                    round: 2
+                }, {
+                    time: '15:30–16:30',
+                    room: 'M2',
+                    seats: 10,
+                    round: 3
+                }, {
+                    time: '16:45–17:45',
+                    room: 'M2',
+                    seats: 10,
+                    round: 4
+                }],
+                d2: [{
+                    time: '09:00–10:00',
+                    room: 'M2',
+                    seats: 10,
+                    round: 1
+                }, {
+                    time: '10:15–11:15',
+                    room: 'M2',
+                    seats: 10,
+                    round: 2
+                }, {
+                    time: '11:30–12:30',
+                    room: 'M2',
+                    seats: 10,
+                    round: 3
+                }, {
+                    time: '12:45–13:45',
+                    room: 'M2',
+                    seats: 10,
+                    round: 4
+                }]
+            }, {
+                dept: 'หลักสูตรเคมีประยุกต์ & ภาควิชาเคมี',
+                code: 'BSAC & CHEM',
+                name: 'น้ำหอม',
+                short: 'ทดลองดมและผสมน้ำหอม เรียนรู้ Top, Middle, Base note และการระเหยของสารให้กลิ่น',
+                full: 'เรียนรู้โครงสร้างของกลิ่นน้ำหอม ได้แก่ Top, Middle และ Base note ผ่านการทดลองดมกลิ่น ทายประเภทกลิ่น และผสมกลิ่นเพื่อสร้างน้ำหอมสูตรของตนเอง สังเกตการเปลี่ยนแปลงของกลิ่นตามเวลา พร้อมเชื่อมโยงกับหลักการทางเคมีเรื่องการระเหยและคุณสมบัติของสารให้กลิ่น',
+                d1: [{
+                    time: '13:00–14:00',
+                    room: 'M1',
+                    seats: 15,
+                    round: 1
+                }, {
+                    time: '16:45–17:45',
+                    room: 'M1',
+                    seats: 15,
+                    round: 2
+                }],
+                d2: [{
+                    time: '09:00–10:00',
+                    room: 'M1',
+                    seats: 15,
+                    round: 1
+                }, {
+                    time: '12:45–13:45',
+                    room: 'M1',
+                    seats: 15,
+                    round: 2
+                }]
+            }, {
+                dept: 'หลักสูตรเทคโนโลยีชีวภาพ',
+                code: 'BBTech',
+                name: 'กำไล/พวงกุญแจ codon code',
+                short: 'ใช้ลูกปัดแทนรหัส codon แล้วทำเป็นกำไลหรือพวงกุญแจ',
+                full: 'ผู้เข้าร่วมจะได้สะกดชื่อตัวเองเป็นรหัส DNA โดยใช้ลูกปัด 4 สีแทนเบส A, T, C และ G ซึ่งเบส 3 ตัวเรียงกัน (codon) จะแทนตัวอักษร 1 ตัวตามตารางรหัส จากนั้นร้อยลูกปัดตามรหัสจนครบชื่อ แล้วทำเป็นสร้อยข้อมือหรือพวงกุญแจ',
+                d1: [{
+                    time: '14:15–15:15',
+                    room: 'M1',
+                    seats: 15,
+                    round: 1
+                }, {
+                    time: '18:00–19:00',
+                    room: 'M1',
+                    seats: 15,
+                    round: 2
+                }],
+                d2: [{
+                    time: '10:15–11:15',
+                    room: 'M1',
+                    seats: 15,
+                    round: 1
+                }, {
+                    time: '14:00–15:00',
+                    room: 'M1',
+                    seats: 15,
+                    round: 2
+                }]
+            }, {
+                dept: 'หลักสูตรวิทยาศาสตร์และเทคโนโลยีอุตสาหการ',
+                code: 'BISTECH',
+                name: 'ลูกบอลคลายเครียด (stress ball) & กระดาษหด (shrink plastic)',
+                short: 'ทำลูกบอลคลายเครียดและงาน DIY จากกระดาษหด',
+                full: 'เอกสารกำหนดการระบุกิจกรรมลูกบอลคลายเครียด (stress ball) และกระดาษหด (shrink plastic) แต่ไม่ได้ให้รายละเอียดขั้นตอนเพิ่มเติม',
+                d1: [{
+                    time: '14:15–15:15',
+                    room: 'L2',
+                    seats: 20,
+                    round: 1
+                }, {
+                    time: '18:00–19:00',
+                    room: 'L2',
+                    seats: 20,
+                    round: 2
+                }],
+                d2: [{
+                    time: '10:15–11:15',
+                    room: 'L2',
+                    seats: 20,
+                    round: 1
+                }, {
+                    time: '12:45–13:45',
+                    room: 'L2',
+                    seats: 20,
+                    round: 2
+                }]
+            }];
+            let selectedDay = 'd1'
+              , viewMode = 'schedule';
+            const cards = document.getElementById('cards')
+              , scheduleList = document.getElementById('scheduleList')
+              , search = document.getElementById('search');
+            const esc = s => s.replace(/[&<>"']/g, c => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            }[c]));
+            function render() {
+                const q = search.value.trim().toLocaleLowerCase('th');
+                const list = workshops.filter(w => {
+                    const dayMatch = selectedDay === 'all' || w[selectedDay].length > 0;
+                    return dayMatch && (w.name + ' ' + w.dept + ' ' + w.code).toLocaleLowerCase('th').includes(q);
+                }
+                );
+                document.getElementById('dayTitle').textContent = selectedDay === 'd1' ? 'กิจกรรมวันที่ 31 ต.ค. 2569' : selectedDay === 'd2' ? 'กิจกรรมวันที่ 1 พ.ย. 2569' : 'กิจกรรมทั้งหมด';
+                document.getElementById('count').textContent = `แสดง ${list.length} จาก ${workshops.length} กิจกรรม`;
+                if (viewMode === 'schedule') {
+                    cards.hidden = true;
+                    scheduleList.hidden = false;
+                    const days = selectedDay === 'd1' ? [['d1', '31 ต.ค. 2569']] : selectedDay === 'd2' ? [['d2', '1 พ.ย. 2569']] : [['d1', '31 ต.ค. 2569'], ['d2', '1 พ.ย. 2569']];
+                    scheduleList.innerHTML = list.length ? days.map( ([key,date]) => {
+                        const entries = list.flatMap(w => w[key].map(session => ({
+                            ...session,
+                            w
+                        }))).sort( (a, b) => a.time.localeCompare(b.time) || a.w.name.localeCompare(b.w.name));
+                        const rows = entries.map( ({time, room, seats, round, w}) => `<div class="schedule-row"><div class="schedule-time">${time}</div><div class="schedule-label"><button type="button" class="schedule-name" data-workshop="${esc(w.code)}" aria-label="ดูรายละเอียด ${esc(w.name)} จากภาควิชา ${esc(w.dept)}">${esc(w.name)}</button><span class="schedule-dept">— ${esc(w.code)} · ${esc(room)} · ${seats} คน · รอบ ${round}</span></div></div>`).join('');
+                        const noRounds = workshops.filter(w => !w[key].length && (w.name + ' ' + w.dept + ' ' + w.code).toLocaleLowerCase('th').includes(q));
+                        const noRoundNote = noRounds.length ? `<p class="schedule-no-rounds">ไม่มีรอบในวันนี้: ${noRounds.map(w => `${esc(w.code)} (${esc(w.dept)})`).join(', ')}</p>` : '';
+                        return `<section class="schedule-day"><h3>${date}</h3>${rows || '<div class="schedule-empty">ไม่มีกิจกรรมในวันที่เลือก</div>'}${noRoundNote}</section>`;
+                    }
+                    ).join('') : '<div class="empty">ไม่พบกิจกรรมที่ตรงกับคำค้น</div>';
+                    scheduleList.querySelectorAll('.schedule-name').forEach(button => button.addEventListener('click', () => showDetails(workshops.find(w => w.code === button.dataset.workshop))));
+                    return;
+                }
+                cards.hidden = false;
+                scheduleList.hidden = true;
+                cards.innerHTML = list.length ? list.map(w => {
+                    const day1 = w.d1.length ? w.d1.map(s => `<span class="time">${s.time}</span>`).join('') : '<span class="no-time">ไม่มีรอบ</span>';
+                    const day2 = w.d2.length ? w.d2.map(s => `<span class="time">${s.time}</span>`).join('') : '<span class="no-time">ไม่มีรอบ</span>';
+                    const schedule = selectedDay === 'd1' ? `<div class="dept">31 ต.ค. 2569</div><div class="times">${day1}</div>` : selectedDay === 'd2' ? `<div class="dept">1 พ.ย. 2569</div><div class="times">${day2}</div>` : `<div class="dept">31 ต.ค. 2569</div><div class="times">${day1}</div><div class="dept">1 พ.ย. 2569</div><div class="times">${day2}</div>`;
+                    return `<article class="card" tabindex="0" role="button" aria-label="ดูรายละเอียดกิจกรรม ${esc(w.name)}" data-workshop="${esc(w.code)}"><div class="card-top"><div><p class="dept">${esc(w.dept)}</p><h3>${esc(w.name)}</h3></div><span class="code">${esc(w.code)}</span></div><p class="summary-text">${esc(w.short)}</p>${schedule}<p class="card-hint">กดเพื่อดูรายละเอียดกิจกรรม →</p></article>`;
+                }
+                ).join('') : '<div class="empty">ไม่พบกิจกรรมที่ตรงกับคำค้น</div>';
+                cards.querySelectorAll('.card').forEach(card => {
+                    const open = () => showDetails(workshops.find(w => w.code === card.dataset.workshop));
+                    card.addEventListener('click', open);
+                    card.addEventListener('keydown', event => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                            event.preventDefault();
+                            open()
+                        }
+                    }
+                    );
+                }
+                );
+            }
+            const detailDialog = document.getElementById('detailDialog');
+            function showDetails(w) {
+                if (!w)
+                    return;
+                document.getElementById('dialogDept').textContent = `${w.dept} · ${w.code}`;
+                document.getElementById('dialogTitle').textContent = w.name;
+                document.getElementById('dialogBody').textContent = w.full;
+                const dates = selectedDay === 'd1' ? [['31 ต.ค. 2569', w.d1]] : selectedDay === 'd2' ? [['1 พ.ย. 2569', w.d2]] : [['31 ต.ค. 2569', w.d1], ['1 พ.ย. 2569', w.d2]];
+                document.getElementById('dialogSchedule').innerHTML = dates.map( ([date,sessions]) => `<p class="dept">${date}</p><div class="times">${sessions.length ? sessions.map(s => `<span class="time">${s.time} · ${s.room} · ${s.seats} คน · รอบ ${s.round}</span>`).join('') : '<span class="no-time">ไม่มีรอบ</span>'}</div>`).join('');
+                detailDialog.showModal();
+            }
+            document.getElementById('dialogClose').addEventListener('click', () => detailDialog.close());
+            detailDialog.addEventListener('click', event => {
+                if (event.target === detailDialog)
+                    detailDialog.close()
+            }
+            );
+            document.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => {
+                selectedDay = btn.dataset.day;
+                document.querySelectorAll('.tab').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+                render()
+            }
+            ));
+            document.querySelectorAll('.view-button').forEach(btn => btn.addEventListener('click', () => {
+                viewMode = btn.dataset.view;
+                document.querySelectorAll('.view-button').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+                render()
+            }
+            ));
+            const themeToggle = document.getElementById('themeToggle');
+            let savedTheme = null;
+            try {
+                savedTheme = localStorage.getItem('workshop-theme')
+            } catch {}
+            if (savedTheme === 'light' || savedTheme === 'dark')
+                document.documentElement.dataset.theme = savedTheme;
+            function updateThemeButton() {
+                const dark = document.documentElement.dataset.theme === 'dark' || (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
+                themeToggle.textContent = dark ? 'โหมดสว่าง' : 'โหมดมืด';
+                themeToggle.setAttribute('aria-label', dark ? 'เปลี่ยนเป็นธีมสว่าง' : 'เปลี่ยนเป็นธีมมืด');
+            }
+            themeToggle.addEventListener('click', () => {
+                const currentDark = document.documentElement.dataset.theme === 'dark' || (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
+                const next = currentDark ? 'light' : 'dark';
+                document.documentElement.dataset.theme = next;
+                try {
+                    localStorage.setItem('workshop-theme', next)
+                } catch {}
+                updateThemeButton()
+            }
+            );
+            search.addEventListener('input', render);
+            updateThemeButton();
+            render();
+        </script>
+    </body>
 </html>
