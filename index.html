@@ -662,6 +662,69 @@
                 background: var(--paper)
             }
 
+            .room-select-grid {
+                display: grid;
+                grid-template-columns: repeat(2,minmax(0,1fr));
+                gap: 12px;
+                padding-bottom: 34px
+            }
+
+            .room-choice {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                padding: 18px;
+                border: 2px solid var(--line);
+                border-radius: 12px;
+                background: var(--paper);
+                color: var(--ink);
+                font: inherit;
+                text-align: left;
+                cursor: pointer
+            }
+
+            .room-choice:hover,.room-choice:focus-visible {
+                border-color: var(--blue);
+                outline: 3px solid #8eafff;
+                outline-offset: 2px
+            }
+
+            .room-choice strong {
+                font-size: 1.15rem
+            }
+
+            .room-choice span {
+                color: var(--muted);
+                font-size: .9rem
+            }
+
+            .room-page-head {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin: 0 0 12px
+            }
+
+            .room-page-head h3 {
+                margin: 0;
+                font-size: 1.08rem
+            }
+
+            .room-back {
+                border: 1.5px solid var(--line);
+                border-radius: 8px;
+                padding: 7px 10px;
+                background: var(--paper);
+                color: var(--blue);
+                font: inherit;
+                cursor: pointer
+            }
+
+            .room-back:hover {
+                border-color: var(--blue)
+            }
+
             @media(max-width: 700px) {
                 .wrap {
                     width:min(100% - 24px,560px)
@@ -744,6 +807,28 @@
                     font-size: .88rem
                 }
 
+                .room-select-grid {
+                    gap: 8px
+                }
+
+                .room-choice {
+                    padding: 14px 11px;
+                    display: block
+                }
+
+                .room-choice strong,.room-choice span {
+                    display: block
+                }
+
+                .room-choice span {
+                    margin-top: 3px
+                }
+
+                .room-page-head {
+                    align-items: flex-start;
+                    flex-direction: column
+                }
+
                 .time {
                     padding: 5px 8px;
                     font-size: .82rem
@@ -781,6 +866,7 @@
         <main class="wrap">
             <div class="view-switch" role="group" aria-label="เลือกรูปแบบการแสดงผล">
                 <button class="view-button" data-view="schedule" aria-pressed="true">ตารางตามเวลา</button>
+                <button class="view-button" data-view="sizes" aria-pressed="false">ตารางตามไซส์</button>
                 <button class="view-button" data-view="cards" aria-pressed="false">รายการกิจกรรม</button>
             </div>
             <div class="section-head">
@@ -788,7 +874,7 @@
                 <span id="count" aria-live="polite"></span>
             </div>
             <section class="grid" id="cards" aria-label="รายการกิจกรรม"></section>
-            <section class="schedule-list" id="scheduleList" aria-label="ตารางกิจกรรมตามเวลา" hidden></section>
+            <section class="schedule-list" id="scheduleList" aria-label="ตารางกิจกรรมตามเวลาและไซส์ห้อง" hidden></section>
         </main>
         <dialog class="detail-dialog" id="detailDialog" aria-labelledby="dialogTitle">
             <div class="dialog-content">
@@ -1081,7 +1167,8 @@
                 }]
             }];
             let selectedDay = 'd1'
-              , viewMode = 'schedule';
+              , viewMode = 'schedule'
+              , selectedRoom = null;
             const cards = document.getElementById('cards')
               , scheduleList = document.getElementById('scheduleList')
               , search = document.getElementById('search');
@@ -1096,7 +1183,8 @@
                 const q = search.value.trim().toLocaleLowerCase('th');
                 const list = workshops.filter(w => {
                     const dayMatch = selectedDay === 'all' || w[selectedDay].length > 0;
-                    return dayMatch && (w.name + ' ' + w.dept + ' ' + w.code).toLocaleLowerCase('th').includes(q);
+                    const rooms = [...w.d1, ...w.d2].map(session => session.room).join(' ');
+                    return dayMatch && (w.name + ' ' + w.dept + ' ' + w.code + ' ' + rooms).toLocaleLowerCase('th').includes(q);
                 }
                 );
                 document.getElementById('dayTitle').textContent = selectedDay === 'd1' ? 'กิจกรรมวันที่ 31 ต.ค. 2569' : selectedDay === 'd2' ? 'กิจกรรมวันที่ 1 พ.ย. 2569' : 'กิจกรรมทั้งหมด';
@@ -1116,6 +1204,45 @@
                         return `<section class="schedule-day"><h3>${date}</h3>${rows || '<div class="schedule-empty">ไม่มีกิจกรรมในวันที่เลือก</div>'}${noRoundNote}</section>`;
                     }
                     ).join('') : '<div class="empty">ไม่พบกิจกรรมที่ตรงกับคำค้น</div>';
+                    scheduleList.querySelectorAll('.schedule-name').forEach(button => button.addEventListener('click', () => showDetails(workshops.find(w => w.code === button.dataset.workshop))));
+                    return;
+                }
+                if (viewMode === 'sizes') {
+                    cards.hidden = true;
+                    scheduleList.hidden = false;
+                    const days = selectedDay === 'd1' ? [['d1', '31 ต.ค. 2569']] : selectedDay === 'd2' ? [['d2', '1 พ.ย. 2569']] : [['d1', '31 ต.ค. 2569'], ['d2', '1 พ.ย. 2569']];
+                    const rooms = ['M1', 'M2', 'L1', 'L2'];
+                    if (!selectedRoom) {
+                        const choices = rooms.map(room => {
+                            const count = list.reduce( (total, w) => total + days.reduce( (dayTotal, [key]) => dayTotal + w[key].filter(session => session.room === room).length, 0), 0);
+                            return `<button type="button" class="room-choice" data-room="${room}"><strong>ไซส์ ${room}</strong><span>${count} รอบกิจกรรม</span></button>`;
+                        }
+                        ).join('');
+                        scheduleList.innerHTML = list.length ? `<div class="room-select-grid">${choices}</div>` : '<div class="empty">ไม่พบกิจกรรมที่ตรงกับคำค้น</div>';
+                        scheduleList.querySelectorAll('.room-choice').forEach(button => button.addEventListener('click', () => {
+                            selectedRoom = button.dataset.room;
+                            render()
+                        }
+                        ));
+                        return;
+                    }
+                    const roomDays = days.map( ([key,date]) => {
+                        const entries = list.flatMap(w => w[key].filter(session => session.room === selectedRoom).map(session => ({
+                            ...session,
+                            w
+                        }))).sort( (a, b) => a.time.localeCompare(b.time) || a.w.name.localeCompare(b.w.name));
+                        const rows = entries.map( ({time, seats, round, w}) => `<div class="schedule-row"><div class="schedule-time">${time}</div><div class="schedule-label"><button type="button" class="schedule-name" data-workshop="${esc(w.code)}" aria-label="ดูรายละเอียด ${esc(w.name)} จากภาควิชา ${esc(w.dept)}">${esc(w.name)}</button><span class="schedule-dept">— ${esc(w.code)} · ${seats} คน · รอบ ${round}</span></div></div>`).join('');
+                        const noRounds = workshops.filter(w => !w[key].length && (w.name + ' ' + w.dept + ' ' + w.code).toLocaleLowerCase('th').includes(q));
+                        const noRoundNote = noRounds.length ? `<p class="schedule-no-rounds">ไม่มีรอบในวันนี้: ${noRounds.map(w => `${esc(w.code)} (${esc(w.dept)})`).join(', ')}</p>` : '';
+                        return `<section class="schedule-day"><h3>${date}</h3>${rows || '<div class="schedule-empty">ไซส์นี้ไม่มีรอบในวันที่เลือก</div>'}${noRoundNote}</section>`;
+                    }
+                    ).join('');
+                    scheduleList.innerHTML = `<div class="room-page-head"><button type="button" class="room-back">← เลือกไซส์อื่น</button><h3>ตารางกิจกรรมไซส์ ${selectedRoom}</h3></div>${roomDays}`;
+                    scheduleList.querySelector('.room-back').addEventListener('click', () => {
+                        selectedRoom = null;
+                        render()
+                    }
+                    );
                     scheduleList.querySelectorAll('.schedule-name').forEach(button => button.addEventListener('click', () => showDetails(workshops.find(w => w.code === button.dataset.workshop))));
                     return;
                 }
@@ -1166,6 +1293,7 @@
             ));
             document.querySelectorAll('.view-button').forEach(btn => btn.addEventListener('click', () => {
                 viewMode = btn.dataset.view;
+                selectedRoom = null;
                 document.querySelectorAll('.view-button').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
                 render()
             }
